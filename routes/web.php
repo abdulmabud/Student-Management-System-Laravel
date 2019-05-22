@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/','frontEndController@index')->name('frontEnd.home');
+Route::get('/noticeboard','frontEndController@notice')->name('frontEnd.notice');
+Route::get('/teachers','frontEndController@teachers')->name('frontEnd.teachers');
+Route::get('/contact','frontEndController@contact')->name('frontEnd.contact');
+Route::get('/about','frontEndController@about')->name('frontEnd.about');

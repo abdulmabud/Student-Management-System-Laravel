@@ -1,0 +1,16 @@
+.imgSlider{
+   height: 550px;
+   width: 100%;
+}
+h2{
+    font-size: 35px !important;
+}
+
+@media (max-width:1000px){
+    .imgSlider{
+        height: 450px;
+    }
+}
+.hidet{
+    color: white;
+}
