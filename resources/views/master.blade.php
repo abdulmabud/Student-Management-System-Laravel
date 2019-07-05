@@ -29,8 +29,7 @@
 </head>
 
 <body id="page-top">
-<h2 class="hidet">Hiding text</h2>
-<h2 class="hidet">Hiding text</h2>
+
 
   @include('inc.menu')
 
@@ -78,9 +77,9 @@
           </ul>
         </div>
         <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">Our Mission & Vission</h4>
-          <p class="lead mb-0">Quality Without Compromise
-          </p>
+          <h4 class="text-uppercase mb-4">About Myself</h4>
+          <p class="lead mb-0">Abdul Mabud</p>
+          <p>abdulmabudcse@gmail.com</p>
         </div>
       </div>
     </div>
@@ -88,7 +87,7 @@
 
   <div class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Webns Technology Ltd 2019</small>
+      <small>Copyright &copy; Abdul Mabuud</small>
     </div>
   </div>
 

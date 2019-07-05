@@ -6,11 +6,11 @@ h2{
     font-size: 35px !important;
 }
 
+.navbar-expand-lg{
+    height: 65px;
+}
 @media (max-width:1000px){
     .imgSlider{
         height: 450px;
     }
-}
-.hidet{
-    color: white;
 }
