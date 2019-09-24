@@ -27,6 +27,11 @@
         <span>Class Schedule</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.classSchedule') }}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Class List</span></a>
+      </li>
+    <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="fas fa-fw fa-table"></i>
         <span>Attendance</span></a>

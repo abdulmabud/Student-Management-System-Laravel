@@ -18,10 +18,10 @@
 // frontEndController for user
 
 Route::get('/','frontEndController@index')->name('frontEnd.home');
-Route::get('/noticeboard','frontEndController@notice')->name('frontEnd.notice');
-Route::get('/teachers','frontEndController@teachers')->name('frontEnd.teachers');
-Route::get('/contact','frontEndController@contact')->name('frontEnd.contact');
-Route::get('/about','frontEndController@about')->name('frontEnd.about');
+// Route::get('/noticeboard','frontEndController@notice')->name('frontEnd.notice');
+// Route::get('/teachers','frontEndController@teachers')->name('frontEnd.teachers');
+// Route::get('/contact','frontEndController@contact')->name('frontEnd.contact');
+// Route::get('/about','frontEndController@about')->name('frontEnd.about');
 
 
 // adminController for admin panel
@@ -35,3 +35,8 @@ Route::get('/parents', 'adminController@parents')->name('admin.parents');
 Route::get('/assignment', 'adminController@assignment')->name('admin.assignment');
 Route::get('/examlist', 'adminController@examlist')->name('admin.examList');
 Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoard');
+
+
+// adminController for library 
+Route::get('/library/add', 'adminController@libraryAdd')->name('admin.library.add');
+Route::post('/library/added', 'adminController@libraryAdded')->name('admin.library.added');

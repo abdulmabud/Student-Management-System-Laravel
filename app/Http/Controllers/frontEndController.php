@@ -10,9 +10,9 @@ class frontEndController extends Controller
         return view('frontEnd.home');
     }
 
-    public function notice(){
-        return view('frontEnd.notice');
-    }
+    // public function notice(){
+    //     return view('frontEnd.notice');
+    // }
 
     public function teachers(){
         return view('frontEnd.teachers');

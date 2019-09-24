@@ -26,7 +26,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Admin Panel</a>
+    <a class="navbar-brand mr-1" href="{{ route('admin.dashboard') }}">Admin Panel</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -85,12 +85,21 @@
 
   </nav>
 
-  <div id="wrapper">
 
-    <!-- Sidebar -->
-    @include('admin.inc.menu')
+    <div class="row">
+      <div class="col-2">
+        @include('admin.inc.menu')
+      </div>
+      <div class="col-10">
+        <div class="container">
+            @yield('content')
+        </div>
+        
+      </div>
+    </div>
+    
 
-   @yield('content')
+  
 
      <!-- Sticky Footer -->
      <footer class="sticky-footer">
@@ -101,7 +110,7 @@
       </div>
     </footer>
 
-  </div>
+ 
 
   </div>
   <!-- /#wrapper -->
