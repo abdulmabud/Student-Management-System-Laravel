@@ -28,7 +28,7 @@ Route::get('/','frontEndController@index')->name('frontEnd.home');
 
 Route::get('/dashboard', 'adminController@index')->name('admin.dashboard');
 Route::get('/class-Schedule', 'adminController@classSchedule')->name('admin.classSchedule');
-Route::get('/library', 'adminController@library')->name('admin.library');
+
 Route::get('/teachers', 'adminController@teachers')->name('admin.teachers');
 Route::get('/students', 'adminController@students')->name('admin.students');
 Route::get('/parents', 'adminController@parents')->name('admin.parents');
@@ -38,5 +38,9 @@ Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoa
 
 
 // adminController for library 
+Route::get('/library', 'adminController@library')->name('admin.library');
 Route::get('/library/add', 'adminController@libraryAdd')->name('admin.library.add');
 Route::post('/library/added', 'adminController@libraryAdded')->name('admin.library.added');
+Route::get('/library/edit/{id}', 'adminController@libraryEdit')->name('admin.library.edit');
+Route::post('/library/update/{id}', 'adminController@libraryUpdate')->name('admin.library.update');
+Route::delete('/library/delete/{id}', 'adminController@libraryDelete')->name('admin.library.delete');

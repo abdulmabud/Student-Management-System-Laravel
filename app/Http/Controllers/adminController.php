@@ -15,9 +15,7 @@ class adminController extends Controller
         return view('admin.classSchedule');
     }
 
-    public function library(){
-        return view('admin.library');
-    }
+    
     public function teachers(){
         return view('admin.teachers');
     }
@@ -42,20 +40,26 @@ class adminController extends Controller
 
     // Library Area
     
+    public function library(){
+        $data['libraryBooks'] = Library::all();
+        return view('admin.library.library', $data);
+    }
+
+
     public function libraryAdd(){
-        return view('admin.addBookLibrary');
+        return view('admin.library.addBook');
     }
     public function libraryAdded(Request $request){
         
-        // $request->validate([
-        //     'bookName' => 'required',
-        //     'bookAuthor' => 'required',
-        //     'bookPrice' => 'required',
-        //     'bookCategory' => 'required',
-        //     'bookStatus' => 'required'
-        // ]);
+        $request->validate([
+            'bookName' => 'required',
+            'bookAuthor' => 'required',
+            'bookPrice' => 'required',
+            'bookCategory' => 'required',
+            'bookStatus' => 'required'
+        ]);
        
-        // return 'sdfsdfasdf';
+       
     
             
     
@@ -68,8 +72,42 @@ class adminController extends Controller
         $libraryObj->bookStatus = $request->bookStatus;
 
         $libraryObj->save();
-        return redirect()->route('admin.library', ['success' => 'Book added in Library']);
+        return redirect()->route('admin.library')->with('success', 'Book added in Library');
 
     }
+    
+    public function libraryEdit($id){
+        $data['book'] = Library::where('id', $id)->first();
+        
+
+        return view('admin.library.editBook', $data);
+    }
+    public function libraryUpdate($id, Request $request){
+        $libraryObj = Library::find($id);
+
+        $request->validate([
+            'bookName' => 'required',
+            'bookAuthor' => 'required',
+            'bookPrice' => 'required',
+            'bookCategory' => 'required',
+            'bookStatus' => 'required',
+          ]);
+
+          $libraryObj->bookName = $request->bookName;
+          $libraryObj->bookAuthor = $request->bookAuthor;
+          $libraryObj->bookPrice = $request->bookPrice;
+          $libraryObj->bookCategory = $request->bookCategory;
+          $libraryObj->bookStatus = $request->bookStatus;
+  
+          $libraryObj->save();
+          return redirect()->route('admin.library')->with('success', 'Book Updated Successfully');
+    }
+    public function libraryDelete($id){
+        $libraryObj = Library::find($id);
+        $libraryObj->delete();
+        return redirect()->route('admin.library')->with('success', 'Book Deleted Successfully');
+    }
+
+    
 
 }

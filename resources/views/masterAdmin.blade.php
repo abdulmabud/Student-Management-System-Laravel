@@ -92,6 +92,7 @@
       </div>
       <div class="col-10">
         <div class="container">
+          @include('admin.inc.message')
             @yield('content')
         </div>
         
