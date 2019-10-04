@@ -5,12 +5,17 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-4 offset-4">
+<style>
+td{
+    padding: 4px !important;
+}
+</style>
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
             <h3 class="text text-center text-primary">Add new book in Library</h3>
             <form action="{{ route('admin.library.added') }}" method="POST" class="form-group">
                 @csrf
-            <table>
+            <table class="table table-borderless">
                 <tr>
                     <td>Book Name</td>
                     <td><input type="text" name="bookName" class="form-control"></td>

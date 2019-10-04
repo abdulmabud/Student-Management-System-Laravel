@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library;
+use App\Student;
 
 class adminController extends Controller
 {
@@ -19,9 +20,7 @@ class adminController extends Controller
     public function teachers(){
         return view('admin.teachers');
     }
-    public function students(){
-        return view('admin.students');
-    }
+   
     public function parents(){
         return view('admin.parents');
     }
@@ -106,6 +105,43 @@ class adminController extends Controller
         $libraryObj = Library::find($id);
         $libraryObj->delete();
         return redirect()->route('admin.library')->with('success', 'Book Deleted Successfully');
+    }
+
+    // student area 
+    public function students(){
+        $data['students'] = Student::get(['id', 'studentName', 'studentPhone', 'studentClass']);
+        return view('admin.student.studentList', $data);
+    }
+    public function studentAdd(){
+        return view('admin.student.addStudent');
+    }
+    public function studentAdded(Request $request){
+        $request->validate([
+            'studentName' => 'required',
+            'studentPhone' => 'required',
+            'studentBirth' => 'required',
+            'studentGender' => 'required',
+            'studentClass' => 'required',
+            'studentAddress' => 'required',
+            'studentFatherName' => 'required',
+            'studentFatherPhone' => 'required',
+            'studentStatus' => 'required'
+        ]);
+
+        $studentObj = new Student();
+
+        $studentObj->studentName = $request->studentName;
+        $studentObj->studentPhone = $request->studentPhone;
+        $studentObj->studentBirth = $request->studentBirth;
+        $studentObj->studentGender = $request->studentGender;
+        $studentObj->studentClass = $request->studentClass;
+        $studentObj->studentAddress = $request->studentAddress;
+        $studentObj->fatherName = $request->studentFatherName;
+        $studentObj->fatherPhone = $request->studentFatherPhone;
+        $studentObj->studentStatus = $request->studentStatus;
+        
+        $studentObj->save();
+        return redirect()->route('admin.students')->with('success', 'Student Information Save Successfully');
     }
 
     

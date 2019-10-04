@@ -30,7 +30,7 @@ Route::get('/dashboard', 'adminController@index')->name('admin.dashboard');
 Route::get('/class-Schedule', 'adminController@classSchedule')->name('admin.classSchedule');
 
 Route::get('/teachers', 'adminController@teachers')->name('admin.teachers');
-Route::get('/students', 'adminController@students')->name('admin.students');
+
 Route::get('/parents', 'adminController@parents')->name('admin.parents');
 Route::get('/assignment', 'adminController@assignment')->name('admin.assignment');
 Route::get('/examlist', 'adminController@examlist')->name('admin.examList');
@@ -44,3 +44,9 @@ Route::post('/library/added', 'adminController@libraryAdded')->name('admin.libra
 Route::get('/library/edit/{id}', 'adminController@libraryEdit')->name('admin.library.edit');
 Route::post('/library/update/{id}', 'adminController@libraryUpdate')->name('admin.library.update');
 Route::delete('/library/delete/{id}', 'adminController@libraryDelete')->name('admin.library.delete');
+
+
+// adminController for student 
+Route::get('/student', 'adminController@students')->name('admin.students');
+Route::get('/student/add', 'adminController@studentAdd')->name('admin.student.add');
+Route::post('/student/add', 'adminController@studentAdded')->name('admin.student.add');
