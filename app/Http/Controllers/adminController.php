@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library;
 use App\Student;
+use App\Classlist;
 
 class adminController extends Controller
 {
@@ -142,6 +143,41 @@ class adminController extends Controller
         
         $studentObj->save();
         return redirect()->route('admin.students')->with('success', 'Student Information Save Successfully');
+    }
+
+
+    // classlist area 
+
+    public function classList(){
+        $data['classList'] = Classlist::all(); 
+        return view('admin.class.classList', $data);
+    }
+    public function classDetails($id){
+        $data['class'] = classList::find($id)->first();
+        return view('admin.class.classDetails', $data);
+    }
+    public function classAdd(){
+        return view('admin.class.addClass');
+    }
+    public function classAdded(Request $request){
+        $request->validate([
+            'className' => 'required',
+            'classQuantity' => 'required',
+            'classStatus' => 'required'
+        ]);
+
+        $classObj = new Classlist();
+
+        $classObj->className = $request->className;
+        $classObj->availableSeat = $request->classQuantity;
+        $classObj->totalSeat = $request->classQuantity;
+        $classObj->classStatus = $request->classStatus;
+
+        $classObj->save();
+
+        return redirect()->route('admin.class')->with('success', 'Class Added Successfully');
+
+
     }
 
     

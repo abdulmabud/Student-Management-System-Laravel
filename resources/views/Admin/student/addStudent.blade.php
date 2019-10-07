@@ -71,7 +71,7 @@ td{
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Save Book" name="saveBook" class="btn btn-primary"></td>
+                    <td><input type="submit" value="Save St" name="saveStudent" class="btn btn-primary"></td>
                 </tr>
             </table>
         </form>

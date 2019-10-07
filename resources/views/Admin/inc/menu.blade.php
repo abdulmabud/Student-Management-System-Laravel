@@ -27,7 +27,7 @@
         <span>Class Schedule</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.classSchedule') }}">
+        <a class="nav-link" href="{{ route('admin.class') }}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Class List</span></a>
       </li>
