@@ -180,6 +180,35 @@ class adminController extends Controller
 
     }
 
+    public function classEdit($id){
+        $data['class'] = classList::find($id)->first();
+        return view('admin.class.editClass', $data);
+    }
+
+    public function classUpdate($id, Request $request){
+        $request->validate([
+            'className' => 'required',
+            'classQuantity' => 'required',
+            'classStatus' => 'required'
+        ]);
+        $classObj = classList::find($id);
+
+        $classObj->className = $request->className;
+        $classObj->totalSeat = $request->classQuantity;
+        $classObj->classStatus = $request->classStatus;
+
+        $classObj->save();
+
+        return redirect()->route('admin.class')->with('success', 'Class Edit Successfully');
+    }
+
+    public function classDelete($id){
+        $classObj = classList::find($id);
+        $classObj->delete();
+
+        return redirect()->route('admin.class')->with('success', 'Class Delete Successfully');
+    }
+
     
 
 }

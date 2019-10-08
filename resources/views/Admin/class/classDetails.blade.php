@@ -32,8 +32,13 @@
                 </tr>
                 
             </table>
-            <a href="#" class="btn btn-primary btn-block my-2">Edit Class</a>
-            <a href="#" class="btn btn-danger btn-block">Delete Class</a>
+            <a href="{{ route('admin.class.edit', $class->id) }}" class="btn btn-primary btn-block my-2">Edit Class</a>
+            
+            <form action="{{ route('admin.class.delete', $class->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Delete Class" class="btn btn-danger btn-block">
+            </form>
         </div>
     </div>
 @endsection

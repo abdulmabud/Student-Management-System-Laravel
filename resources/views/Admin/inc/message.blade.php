@@ -1,4 +1,5 @@
-@if (count($errors)>0)
+<div class="mt-4">
+  @if (count($errors)>0)
   @foreach ($errors->all() as $error)
     <div class="alert alert-danger">
       {{ $error }}
@@ -15,3 +16,5 @@
 </div>
 
 @endif
+
+</div>

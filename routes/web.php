@@ -57,3 +57,6 @@ Route::get('/classlist', 'adminController@classList')->name('admin.class');
 Route::get('/class-details/{id}', 'adminController@classDetails')->name('admin.class.details');
 Route::get('/class/add', 'adminController@classAdd')->name('admin.class.add');
 Route::post('/class/add', 'adminController@classAdded')->name('admin.class.add');
+Route::get('/class/edit/{id}', 'adminController@classEdit')->name('admin.class.edit');
+Route::post('/class/update/{id}', 'adminController@classUpdate')->name('admin.class.update');
+Route::delete('/class/delete/{id}','adminController@classDelete')->name('admin.class.delete');
