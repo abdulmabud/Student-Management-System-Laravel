@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library;
 use App\Student;
+use App\Teacher;
 use App\Classlist;
 
 class adminController extends Controller
@@ -18,9 +19,6 @@ class adminController extends Controller
     }
 
     
-    public function teachers(){
-        return view('admin.teachers');
-    }
    
     public function parents(){
         return view('admin.parents');
@@ -145,6 +143,42 @@ class adminController extends Controller
         return redirect()->route('admin.students')->with('success', 'Student Information Save Successfully');
     }
 
+
+    // teacher area 
+
+    public function teachers(){
+        $data['teachers'] = Teacher::all();
+        
+        return view('admin.teacher.teacherList', $data);
+    }
+    public function teacherAdd(){
+        return view('admin.teacher.addTeacher');
+    }
+    
+    public function teacherAdded(Request $request){
+        $request->validate([
+            'teacherName' => 'required',
+            'teacherPhone' => 'required',
+            'teacherEmail' => 'required',
+            'teacherStatus' => 'required'
+        ]);
+
+        $teacherObj = new Teacher();
+
+        $teacherObj->teacherName = $request->teacherName;
+        $teacherObj->teacherPhone = $request->teacherPhone;
+        $teacherObj->teacherEmail = $request->teacherEmail;
+        $teacherObj->teacherStatus = $request->teacherStatus;
+
+        $teacherObj->save();
+        return redirect()->route('admin.teachers')->with('success', 'Teacher Added Successfully');
+        
+    }
+
+    public function teacherDetails($id){
+        $data['teacher'] = Teacher::find($id);
+        return view('admin.teacher.teacherDetails', $data);
+    }
 
     // classlist area 
 

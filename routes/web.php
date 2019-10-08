@@ -29,7 +29,7 @@ Route::get('/','frontEndController@index')->name('frontEnd.home');
 Route::get('/dashboard', 'adminController@index')->name('admin.dashboard');
 Route::get('/class-Schedule', 'adminController@classSchedule')->name('admin.classSchedule');
 
-Route::get('/teachers', 'adminController@teachers')->name('admin.teachers');
+
 
 Route::get('/parents', 'adminController@parents')->name('admin.parents');
 Route::get('/assignment', 'adminController@assignment')->name('admin.assignment');
@@ -50,6 +50,13 @@ Route::delete('/library/delete/{id}', 'adminController@libraryDelete')->name('ad
 Route::get('/student', 'adminController@students')->name('admin.students');
 Route::get('/student/add', 'adminController@studentAdd')->name('admin.student.add');
 Route::post('/student/add', 'adminController@studentAdded')->name('admin.student.add');
+
+
+// adminController for teacher 
+Route::get('/teacher', 'adminController@teachers')->name('admin.teachers');
+Route::get('/teacher/add', 'adminController@teacherAdd')->name('admin.teacher.add');
+Route::post('/teacher/add', 'adminController@teacherAdded')->name('admin.teacher.add');
+Route::get('/teacher/details/{id}', 'adminController@teacherDetails')->name('admin.teacher.details');
 
 
 // adminController for class 

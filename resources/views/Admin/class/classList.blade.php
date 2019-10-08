@@ -16,7 +16,7 @@ th,td{
         
     </div>
     
-    <h3 class="text text-primary text-center mt-5">List of Book</h3>
+    <h3 class="text text-primary text-center mt-5">List of Class</h3>
     <div class="row">
         <div class="col-12">
             <table class="table table-bordered">

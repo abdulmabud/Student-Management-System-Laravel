@@ -32,7 +32,7 @@ th,td{
                 <tbody>
                      @foreach ($students as $student)
                          
-                     @endforeach  
+                    
                     <tr>
                         <td class="text-center">{{ $student->id }}</td>
                         <td>{{ $student->studentName }}</td>
@@ -41,11 +41,9 @@ th,td{
                         <td>
                             <a href="#" class="btn btn-success">View Details</a>
                         </td>
-                        
-                    
-                      
+               
                     </tr>
-                  
+                    @endforeach  
                 </tbody>
             </table>
         </div>
