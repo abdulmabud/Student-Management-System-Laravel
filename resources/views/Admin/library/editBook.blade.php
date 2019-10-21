@@ -5,12 +5,17 @@
 @endsection
 
 @section('content')
+<style>
+    td{
+        padding: 4px !important;
+    }
+    </style>
     <div class="row">
-        <div class="col-4 offset-4">
+        <div class="col-md-6 offset-md-3">
             <h3 class="text text-center text-primary">Add new book in Library</h3>
             <form action="{{ route('admin.library.update', $book->id) }}" method="POST" class="form-group">
                 @csrf
-            <table>
+            <table class="table table-borderless">
                 
                     
                
@@ -25,6 +30,10 @@
                 <tr>
                     <td>Book Price</td>
                     <td><input type="number" name="bookPrice" class="form-control" value="{{ $book->bookPrice }}"></td>
+                </tr>
+                <tr>
+                    <td>Book Quantity</td>
+                    <td><input type="number" name="bookQuantity" class="form-control" value="{{ $book->bookQuantity }}"></td>
                 </tr>
                 <tr>
                     <td>Book Category</td>

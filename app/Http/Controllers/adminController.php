@@ -53,6 +53,7 @@ class adminController extends Controller
             'bookName' => 'required',
             'bookAuthor' => 'required',
             'bookPrice' => 'required',
+            'bookQuantity' => 'required',
             'bookCategory' => 'required',
             'bookStatus' => 'required'
         ]);
@@ -66,6 +67,8 @@ class adminController extends Controller
         $libraryObj->bookName = $request->bookName;
         $libraryObj->bookAuthor = $request->bookAuthor;
         $libraryObj->bookPrice = $request->bookPrice;
+        $libraryObj->bookQuantity = $request->bookQuantity;
+        $libraryObj->bookQuantityAvailable = $request->bookQuantity;
         $libraryObj->bookCategory = $request->bookCategory;
         $libraryObj->bookStatus = $request->bookStatus;
 
@@ -87,6 +90,7 @@ class adminController extends Controller
             'bookName' => 'required',
             'bookAuthor' => 'required',
             'bookPrice' => 'required',
+            'bookQuantity' => 'required',
             'bookCategory' => 'required',
             'bookStatus' => 'required',
           ]);

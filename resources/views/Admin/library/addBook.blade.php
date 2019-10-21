@@ -29,6 +29,10 @@ td{
                     <td><input type="number" name="bookPrice" class="form-control"></td>
                 </tr>
                 <tr>
+                    <td>Book Quantity</td>
+                    <td><input type="number" name="bookQuantity" class="form-control"></td>
+                </tr>
+                <tr>
                     <td>Book Category</td>
                     <td>
                         <select name="bookCategory" id="" class="form-control">
