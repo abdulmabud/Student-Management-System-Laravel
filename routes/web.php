@@ -36,6 +36,11 @@ Route::get('/assignment', 'adminController@assignment')->name('admin.assignment'
 Route::get('/examlist', 'adminController@examlist')->name('admin.examList');
 Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoard');
 
+// Student Attendance system
+
+Route::get('/attendance', 'adminController@attend')->name('admin.attendance');
+Route::post('/attendance', 'adminController@attendList')->name('admin.attendance');
+
 
 // adminController for library 
 Route::get('/library', 'adminController@library')->name('admin.library');

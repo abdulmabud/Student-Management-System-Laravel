@@ -36,6 +36,21 @@ class adminController extends Controller
         return view('admin.noticeboard');
     }
 
+    // Attendace Area
+
+    public function attend(){
+        $data['classes'] = ClassList::select('className')->get();
+        return view('admin.attendance.index', $data);
+    }
+
+    public function attendList(Request $request){
+        $request->validate([
+            'classDate' => 'required',
+            'className' => 'required'
+        ]);
+
+    }
+
     // Library Area
     
     public function library(){
@@ -116,7 +131,8 @@ class adminController extends Controller
         return view('admin.student.studentList', $data);
     }
     public function studentAdd(){
-        return view('admin.student.addStudent');
+        $data['class'] = ClassList::select('className')->get();
+        return view('admin.student.addStudent', $data);
     }
     public function studentAdded(Request $request){
         $request->validate([

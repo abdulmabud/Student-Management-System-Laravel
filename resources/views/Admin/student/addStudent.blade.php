@@ -1,7 +1,7 @@
 @extends('masteradmin')
 
 @section('title')
-    Add Book
+    Admission Student
 @endsection
 
 @section('content')
@@ -41,8 +41,11 @@ td{
                     <td>Class</td>
                     <td>
                         <select name="studentClass" id="" class="form-control">
-                            <option value="classOne">Class One</option>
-                            <option value="classTwo">Class Two</option>
+                            @foreach ($class as $c)
+                              <option value="{{ $c->className }}">{{ $c->className }}</option>
+                            @endforeach
+                            
+                           
                         </select>
                     </td>
                 </tr>
@@ -71,7 +74,7 @@ td{
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Save St" name="saveStudent" class="btn btn-primary"></td>
+                    <td><input type="submit" value="Admit Student" name="saveStudent" class="btn btn-primary"></td>
                 </tr>
             </table>
         </form>

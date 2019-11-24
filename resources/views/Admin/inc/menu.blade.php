@@ -32,7 +32,7 @@
           <span>Class List</span></a>
       </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('admin.attendance') }}">
         <i class="fas fa-fw fa-table"></i>
         <span>Attendance</span></a>
     </li>
