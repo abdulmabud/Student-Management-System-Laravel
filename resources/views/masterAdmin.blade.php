@@ -158,6 +158,7 @@
   <!-- Demo scripts for this page-->
   <script src="{{ asset('customAdmin/js/demo/datatables-demo.js') }}"></script>
   <script src="{{ asset('customAdmin/js/demo/chart-area-demo.js') }}"></script>
+  <script src="{{ asset('customAdmin/js/custom.js') }}"></script>
 
 </body>
 

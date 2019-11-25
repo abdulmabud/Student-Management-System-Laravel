@@ -49,6 +49,10 @@ class adminController extends Controller
             'className' => 'required'
         ]);
 
+        $data['students'] = Student::all();
+
+        return view('admin.attendance.studentList', $data);
+
     }
 
     // Library Area
