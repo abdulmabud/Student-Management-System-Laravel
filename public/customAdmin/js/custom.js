@@ -1,11 +1,17 @@
 $('#attendanceFrom').submit(function(e){
-    e.preventDefault();
+    $('#attendanceFrom').preventDefault();
+    console.log('clicked');
+    
+});
+$('#submitAttend').click(function(){
+    $('#attendanceFrom').submit();
 });
 
-$('#attendanceFrom td button').click(function(){
+$('#attendanceFrom td span').click(function(){
     var a = $(this).text();
     if(a == 'Yes'){
         $(this).next().attr("disabled", 'disabled');
+        $(this).next().css("background", '#ccc');
         $(this).next().next().css('display', 'inline-block');
         
     }else if(a == 'No'){
@@ -18,4 +24,39 @@ $('#attendanceFrom td button').click(function(){
     }
     
     console.log(a);
+});
+
+$('td:first-child').each(function() {
+    var studentId = $(this).attr('id');
+
+    // attend student 
+    $('#attend'+studentId).css('display', 'none');
+    $('#attendance1'+studentId).click(function(){
+        $('#attend'+studentId).css('display', 'block');
+        $('#attendance1'+studentId).css('display', 'none');
+        $('#absend'+studentId).css('display', 'none');
+        $('#attendance2'+studentId).css('display', 'block');
+    })
+
+    $('#attend'+studentId).click(function(){
+        $('#attend'+studentId).css('display', 'none');
+        $('#attendance1'+studentId).css('display', 'block');
+    })
+
+
+    // absend student 
+    $('#absend'+studentId).css('display', 'none');
+    $('#attendance2'+studentId).click(function(){
+        $('#absend'+studentId).css('display', 'block');
+        $('#attendance2'+studentId).css('display', 'none');
+
+        $('#attend'+studentId).css('display', 'none');
+        $('#attendance1'+studentId).css('display', 'block');
+    })
+
+    $('#absend'+studentId).click(function(){
+        $('#absend'+studentId).css('display', 'none');
+        $('#attendance2'+studentId).css('display', 'block');
+    })
+
 });
