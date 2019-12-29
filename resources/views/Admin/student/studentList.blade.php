@@ -35,9 +35,9 @@ th,td{
                     
                     <tr>
                         <td class="text-center">{{ $student->id }}</td>
-                        <td>{{ $student->studentName }}</td>
-                        <td>{{ $student->studentPhone }}</td>
-                        <td>{{ $student->studentClass }}</td>
+                        <td>{{ $student->Name }}</td>
+                        <td>{{ $student->Phone }}</td>
+                        <td>{{ $student->Class }}</td>
                         <td>
                             <a href="#" class="btn btn-success">View Details</a>
                         </td>

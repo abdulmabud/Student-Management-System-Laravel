@@ -18,29 +18,29 @@ td{
             <table class="table table-borderless">
                 <tr>
                     <td>Student Name</td>
-                    <td><input type="text" name="studentName" class="form-control"></td>
+                    <td><input type="text" name="Name" class="form-control" value="{{ old('Name') }}"></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td><input type="text" name="studentPhone" class="form-control"></td>
+                    <td><input type="text" name="Phone" class="form-control" value="{{ old('Phone') }}"></td>
                 </tr>
                 <tr>
                     <td>Date of Birth</td>
                     <td>
-                        <input type="date" name="studentBirth" class="form-control"> 
+                        <input type="date" name="Birth" class="form-control" value="{{ old('Birth') }}"> 
                     </td>
                 </tr>
                 <tr>
                     <td>Gender</td>
                     <td>
-                        <label><input type="radio" name="studentGender" value="Male">Male</label>
-                        <label><input type="radio" name="studentGender" value="Female">Female</label>
+                        <label><input type="radio" name="Gender" value="Male">Male</label>
+                        <label><input type="radio" name="Gender" value="Female">Female</label>
                     </td>
                 </tr>
                 <tr>
                     <td>Class</td>
                     <td>
-                        <select name="studentClass" id="" class="form-control">
+                        <select name="Class" id="" class="form-control">
                             @foreach ($class as $c)
                               <option value="{{ $c->className }}">{{ $c->className }}</option>
                             @endforeach
@@ -51,26 +51,26 @@ td{
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td><input type="text" name="studentAddress" class="form-control"></td>
+                    <td><input type="text" name="Address" class="form-control" value="{{ old('Address') }}"></td>
                 </tr>
                 <tr>
                     <td>Father Name</td>
                     <td>
-                      <input type="text" name="studentFatherName" class="form-control">
+                      <input type="text" name="FatherName" class="form-control" value="{{ old('FatherName') }}">
                     </td>
                 </tr>
                 <tr>
                     <td>Father Phone</td>
-                    <td><input type="text" name="studentFatherPhone" class="form-control"></td>
+                    <td><input type="text" name="FatherPhone" class="form-control" value="{{ old('FatherPhone') }}"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
                     <td>
-                        <select name="studentStatus" id="" class="form-control">
+                        <select name="Status" id="" class="form-control">
                             <option value="published">Published</option>
                             <option value="unpublished">Unpublished</option>
                         </select>
-                    </td>
+                    </td>   
                 </tr>
                 <tr>
                     <td></td>

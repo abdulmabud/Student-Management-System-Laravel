@@ -8,6 +8,7 @@ use App\Library;
 use App\Student;
 use App\Teacher;
 use App\Classlist;
+use Validator;
 
 class adminController extends Controller
 {
@@ -131,7 +132,7 @@ class adminController extends Controller
 
     // student area 
     public function students(){
-        $data['students'] = Student::get(['id', 'studentName', 'studentPhone', 'studentClass']);
+        $data['students'] = Student::get(['id', 'Name', 'Phone', 'Class']);
         return view('admin.student.studentList', $data);
     }
     public function studentAdd(){
@@ -139,29 +140,33 @@ class adminController extends Controller
         return view('admin.student.addStudent', $data);
     }
     public function studentAdded(Request $request){
-        $request->validate([
-            'studentName' => 'required',
-            'studentPhone' => 'required',
-            'studentBirth' => 'required',
-            'studentGender' => 'required',
-            'studentClass' => 'required',
-            'studentAddress' => 'required',
-            'studentFatherName' => 'required',
-            'studentFatherPhone' => 'required',
-            'studentStatus' => 'required'
+        
+        $validator = Validator::make($request->all(), [
+            'Name' => 'required',
+            'Phone' => 'required',
+            'Birth' => 'required',
+            'Gender' => 'required',
+            'Class' => 'required',
+            'Address' => 'required',
+            'FatherName' => 'required',
+            'FatherPhone' => 'required',
+            'Status' => 'required'
         ]);
 
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $studentObj = new Student();
 
-        $studentObj->studentName = $request->studentName;
-        $studentObj->studentPhone = $request->studentPhone;
-        $studentObj->studentBirth = $request->studentBirth;
-        $studentObj->studentGender = $request->studentGender;
-        $studentObj->studentClass = $request->studentClass;
-        $studentObj->studentAddress = $request->studentAddress;
-        $studentObj->fatherName = $request->studentFatherName;
-        $studentObj->fatherPhone = $request->studentFatherPhone;
-        $studentObj->studentStatus = $request->studentStatus;
+        $studentObj->Name = $request->Name;
+        $studentObj->Phone = $request->Phone;
+        $studentObj->Birth = $request->Birth;
+        $studentObj->Gender = $request->Gender;
+        $studentObj->Class = $request->Class;
+        $studentObj->Address = $request->Address;
+        $studentObj->fatherName = $request->FatherName;
+        $studentObj->fatherPhone = $request->FatherPhone;
+        $studentObj->Status = $request->Status;
         
         $studentObj->save();
         return redirect()->route('admin.students')->with('success', 'Student Information Save Successfully');

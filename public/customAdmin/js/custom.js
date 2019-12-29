@@ -25,10 +25,13 @@ $('#attendanceFrom td span').click(function(){
     
     console.log(a);
 });
-
+var attend = [];
+var absend = [];
 $('td:first-child').each(function() {
     var studentId = $(this).attr('id');
-
+    
+    
+    
     // attend student 
     $('#attend'+studentId).css('display', 'none');
     $('#attendance1'+studentId).click(function(){
@@ -36,11 +39,15 @@ $('td:first-child').each(function() {
         $('#attendance1'+studentId).css('display', 'none');
         $('#absend'+studentId).css('display', 'none');
         $('#attendance2'+studentId).css('display', 'block');
+        attend.push(studentId);
+        absend.pop(studentId);
+        
     })
 
     $('#attend'+studentId).click(function(){
         $('#attend'+studentId).css('display', 'none');
         $('#attendance1'+studentId).css('display', 'block');
+        attend.pop(studentId);
     })
 
 
@@ -52,11 +59,16 @@ $('td:first-child').each(function() {
 
         $('#attend'+studentId).css('display', 'none');
         $('#attendance1'+studentId).css('display', 'block');
+        attend.pop(studentId);
+        absend.push(studentId);
     })
 
     $('#absend'+studentId).click(function(){
         $('#absend'+studentId).css('display', 'none');
         $('#attendance2'+studentId).css('display', 'block');
+        absend.pop(studentId);
     })
+
+    
 
 });
