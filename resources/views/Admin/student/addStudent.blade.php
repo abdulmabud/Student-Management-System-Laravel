@@ -67,8 +67,8 @@ td{
                     <td>Status</td>
                     <td>
                         <select name="Status" id="" class="form-control">
-                            <option value="published">Published</option>
-                            <option value="unpublished">Unpublished</option>
+                            <option value="publish">Published</option>
+                            <option value="unpublish">Unpublished</option>
                         </select>
                     </td>   
                 </tr>

@@ -49,11 +49,21 @@ class adminController extends Controller
             'classDate' => 'required',
             'className' => 'required'
         ]);
+        $className = $request->className;
 
-        $data['students'] = Student::all();
+        $data['students'] = Student::where('Class', $className)->get();
 
         return view('admin.attendance.studentList', $data);
 
+    }
+
+    public function saveAttendance(Request $request){
+        $validator = Validator::make($request->all(),[
+
+        ]);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
     }
 
     // Library Area
