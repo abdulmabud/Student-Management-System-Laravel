@@ -40,7 +40,7 @@ Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoa
 
 Route::get('/attendance', 'adminController@attend')->name('admin.attendance');
 Route::post('/attendance', 'adminController@attendList')->name('admin.attendance');
-Route::get('/save-attendacne', 'adminController@saveAttendance')->name('admin.save.attendance');
+Route::post('/save-attendacne', 'adminController@saveAttendance')->name('admin.save.attendance');
 
 
 // adminController for library 

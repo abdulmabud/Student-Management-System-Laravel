@@ -8,6 +8,7 @@ use App\Library;
 use App\Student;
 use App\Teacher;
 use App\Classlist;
+use App\Attendance;
 use Validator;
 
 class adminController extends Controller
@@ -52,18 +53,32 @@ class adminController extends Controller
         $className = $request->className;
 
         $data['students'] = Student::where('Class', $className)->get();
-
+        $data['date'] = $request->classDate;
         return view('admin.attendance.studentList', $data);
 
     }
 
     public function saveAttendance(Request $request){
         $validator = Validator::make($request->all(),[
-
+            'attendance' => 'required',
+            'date' => 'required'
         ]);
+        $date = $request->date;
+        $attendance = json_decode($request->attendance, true);
+       
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
+
+        foreach($attendance as $key=>$value){
+        Attendance::create([
+            'student_id' => $key,
+            'attendance' => $value,
+            'date' => $date 
+        ]);
+        }
+
+        return redirect()->route('admin.attendance')->with('success', 'Attendance Save Successfully');
     }
 
     // Library Area

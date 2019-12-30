@@ -6,7 +6,8 @@ Attendance
 
 @section('content')
 <div class="container">
-    <form action="" method="get" class="form-group" id="attendanceFrom">
+    <form action="{{ route('admin.save.attendance') }}" method="POST" class="form-group" id="attendanceFrom">
+       @csrf
         <table class="table table-bordered">
             <tr>
                 <th style="width: 20%">Student Roll</th>
@@ -35,8 +36,9 @@ Attendance
                 
             </tr>
             @endforeach
-            <input type="text" name="attend" id="attend">
-            <input type="text" name="absend" id="absend">
+            <input type="hidden" name="attendance" id="attendance">
+            <input type="hidden" name="date" value="{{ $date }}">
+            
         </table>
 
         <input type="submit" value="Submit" class="btn btn-primary" id="submitAttend">
@@ -48,12 +50,12 @@ Attendance
 
 @section('singlePageScript')
 <script>
-    var attend = [];
-    var absend = [];
+    var attendance = {};
+  
+
     $('td:first-child').each(function () {
         var studentId = $(this).attr('id');
-
-
+       
 
         // attend student 
         $('#attend' + studentId).css('display', 'none');
@@ -62,15 +64,19 @@ Attendance
             $('#attendance1' + studentId).css('display', 'none');
             $('#absend' + studentId).css('display', 'none');
             $('#attendance2' + studentId).css('display', 'block');
-            attend.push(studentId);
-            absend.pop(studentId);
-
+           
+            attendance[studentId] = 'attend';
+            console.log(attendance);
+            updateAttendance();
         })
 
         $('#attend' + studentId).click(function () {
             $('#attend' + studentId).css('display', 'none');
             $('#attendance1' + studentId).css('display', 'block');
-            attend.pop(studentId);
+
+            delete attendance[studentId];
+            console.log(attendance);
+            updateAttendance();
         })
 
 
@@ -82,22 +88,27 @@ Attendance
 
             $('#attend' + studentId).css('display', 'none');
             $('#attendance1' + studentId).css('display', 'block');
-            attend.pop(studentId);
-            absend.push(studentId);
+
+            attendance[studentId] = 'absend';
+            console.log(attendance);
+            updateAttendance();
         })
 
         $('#absend' + studentId).click(function () {
             $('#absend' + studentId).css('display', 'none');
             $('#attendance2' + studentId).css('display', 'block');
-            absend.pop(studentId);
+
+            delete attendance[studentId];
+            console.log(attendance);
+            updateAttendance();
         })
 
-        setInterval(() => {
+        function updateAttendance(){
+            $('#attendance').val(JSON.stringify(attendance));
+        }
             
-            console.log(attend);
-            $('#attend').val(JSON.stringify(attend));
 
-        }, 3000);
+        
 
     });
 
