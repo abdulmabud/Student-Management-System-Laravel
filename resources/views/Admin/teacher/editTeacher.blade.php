@@ -1,7 +1,7 @@
 @extends('masteradmin')
 
 @section('title')
-    Add Class
+    Update Teacher
 @endsection
 
 @section('content')
@@ -12,26 +12,28 @@ td{
 </style>
     <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
-            <h3 class="text text-center text-primary">Update New Class</h3>
-            <form action="{{ route('admin.class.update', $class->id) }}" method="POST" class="form-group">
+            <h3 class="text text-center text-primary">Update Teacher</h3>
+            <form action="{{ route('admin.teacher.update', $teacher->id) }}" method="POST" class="form-group">
                 @csrf
             <table class="table table-borderless">
                 <tr>
-                    <td>Class Name</td>
-                    <td><input type="text" name="className" class="form-control" value="{{ $class->className }}"></td>
+                    <td>Teacher Name</td>
+                    <td><input type="text" name="Name" class="form-control" value="{{ $teacher->Name }}"></td>
                 </tr>
                 <tr>
-                    <td>Total no. Student
-
-                    </td>
-                    <td><input type="text" name="classQuantity" class="form-control" value="{{ $class->totalSeat }}"></td>
+                    <td>Teacher Phone</td>
+                    <td><input type="text" name="Phone" class="form-control" value="{{ $teacher->Phone }}"></td>
+                </tr>
+                <tr>
+                    <td>Teacher Email</td>
+                    <td><input type="email" name="Email" class="form-control" value="{{ $teacher->Email }}"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
                     <td>
-                        <select name="teacher" id="" class="form-control">
-                            <option value="Published" {{ $class->teacherStatus == 'Published' ? 'selected' : '' }}>Published</option>
-                            <option value="Unpublished" {{ $class->teacherStatus == 'Unpublished' ? 'selected' : '' }}>Unpublished</option>
+                        <select name="Status" id="" class="form-control">
+                            <option value="Publish" {{ $teacher->teacherStatus == 'Publish' ? 'selected' : '' }}>Publish</option>
+                            <option value="Unpublish" {{ $teacher->teacherStatus == 'Unpublish' ? 'selected' : '' }}>Unpublish</option>
                         </select>
                     </td>
                 </tr>

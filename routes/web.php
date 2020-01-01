@@ -63,6 +63,9 @@ Route::get('/teacher', 'adminController@teachers')->name('admin.teachers');
 Route::get('/teacher/add', 'adminController@teacherAdd')->name('admin.teacher.add');
 Route::post('/teacher/add', 'adminController@teacherAdded')->name('admin.teacher.add');
 Route::get('/teacher/details/{id}', 'adminController@teacherDetails')->name('admin.teacher.details');
+Route::get('/teacher/edit/{id}', 'adminController@teacherEdit')->name('admin.teacher.edit');
+Route::post('/teacher/update/{id}', 'adminController@teacherUpdate')->name('admin.teacher.update');
+Route::delete('/teacher/delete/{id}', 'adminController@teacherDelete')->name('admin.teacher.delete');
 
 
 // adminController for class 

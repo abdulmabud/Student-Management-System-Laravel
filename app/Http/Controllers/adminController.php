@@ -178,6 +178,8 @@ class adminController extends Controller
             'Status' => 'required'
         ]);
 
+        
+
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
@@ -201,7 +203,7 @@ class adminController extends Controller
     // teacher area 
 
     public function teachers(){
-        $data['teachers'] = Teacher::where('Status', 'Publish')->get();
+        $data['teachers'] = Teacher::all();
         
         return view('admin.teacher.teacherList', $data);
     }
@@ -232,6 +234,44 @@ class adminController extends Controller
     public function teacherDetails($id){
         $data['teacher'] = Teacher::find($id);
         return view('admin.teacher.teacherDetails', $data);
+    }
+
+    public function teacherEdit($id){
+        $data['teacher'] = Teacher::where('id', $id)->first();
+
+        return view('admin.teacher.editTeacher', $data);
+    }
+
+    public function teacherUpdate(Request $request, $id){
+
+        $validator = Validator::make($request->all(), [
+            'Name' => 'required',
+            'Phone' => 'required',
+            'Email' => 'required',
+            'Status' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $teacherObj = Teacher::find($id);
+
+        $teacherObj->Name = $request->Name;
+        $teacherObj->Phone = $request->Phone;
+        $teacherObj->Email = $request->Email;
+        $teacherObj->Status = $request->Status;
+        $teacherObj->save();
+
+        return redirect()->route('admin.teachers')->with('success', "Teacher Info Updated Successfully");
+
+    }
+
+    public function teacherDelete($id){
+        $teacherObj = Teacher::find($id);
+        $teacherObj->delete();
+
+        return redirect()->route('admin.teachers')->with('success', 'Teacher Delete Successfully');
     }
 
     // classlist area 

@@ -32,9 +32,9 @@
                 </tr>
                 
             </table>
-            <a href="{{ route('admin.class.edit', $teacher->id) }}" class="btn btn-primary btn-block my-2">Edit Teacher</a>
+            <a href="{{ route('admin.teacher.edit', $teacher->id) }}" class="btn btn-primary btn-block my-2">Edit Teacher</a>
             
-            <form action="{{ route('admin.class.delete', $teacher->id) }}" method="POST">
+            <form action="{{ route('admin.teacher.delete', $teacher->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="Delete Teacher" class="btn btn-danger btn-block">
