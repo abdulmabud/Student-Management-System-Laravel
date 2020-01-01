@@ -35,9 +35,9 @@ th,td{
                     
                     <tr>
                         <td>{{ $teacher->id }}</td>
-                        <td>{{ $teacher->teacherName }}</td>
-                        <td>{{ $teacher->teacherPhone }}</td>
-                        <td>{{ $teacher->teacherEmail }}</td>
+                        <td>{{ $teacher->Name }}</td>
+                        <td>{{ $teacher->Phone }}</td>
+                        <td>{{ $teacher->Email }}</td>
                         <td>
                             <a href="{{ route('admin.teacher.details', $teacher->id) }}" class="btn btn-success">View Details</a>
                         </td>

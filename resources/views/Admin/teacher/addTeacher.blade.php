@@ -18,22 +18,22 @@ td{
             <table class="table table-borderless">
                 <tr>
                     <td>Teacher Name</td>
-                    <td><input type="text" name="teacherName" class="form-control"></td>
+                    <td><input type="text" name="Name" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td><input type="text" name="teacherPhone" class="form-control"></td>
+                    <td><input type="text" name="Phone" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><input type="email" name="teacherEmail" class="form-control"></td>
+                    <td><input type="email" name="Email" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
                     <td>
-                        <select name="teacherStatus" id="" class="form-control">
-                            <option value="Published">Published</option>
-                            <option value="Unpublished">Unpublished</option>
+                        <select name="Status" id="" class="form-control">
+                            <option value="Publish">Publish</option>
+                            <option value="Unpublish">Unpublish</option>
                         </select>
                     </td>
                 </tr>

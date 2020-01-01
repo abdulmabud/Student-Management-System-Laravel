@@ -201,7 +201,7 @@ class adminController extends Controller
     // teacher area 
 
     public function teachers(){
-        $data['teachers'] = Teacher::all();
+        $data['teachers'] = Teacher::where('Status', 'Publish')->get();
         
         return view('admin.teacher.teacherList', $data);
     }
@@ -211,18 +211,18 @@ class adminController extends Controller
     
     public function teacherAdded(Request $request){
         $request->validate([
-            'teacherName' => 'required',
-            'teacherPhone' => 'required',
-            'teacherEmail' => 'required',
-            'teacherStatus' => 'required'
+            'Name' => 'required',
+            'Phone' => 'required',
+            'Email' => 'required',
+            'Status' => 'required'
         ]);
 
         $teacherObj = new Teacher();
 
-        $teacherObj->teacherName = $request->teacherName;
-        $teacherObj->teacherPhone = $request->teacherPhone;
-        $teacherObj->teacherEmail = $request->teacherEmail;
-        $teacherObj->teacherStatus = $request->teacherStatus;
+        $teacherObj->Name = $request->Name;
+        $teacherObj->Phone = $request->Phone;
+        $teacherObj->Email = $request->Email;
+        $teacherObj->Status = $request->Status;
 
         $teacherObj->save();
         return redirect()->route('admin.teachers')->with('success', 'Teacher Added Successfully');

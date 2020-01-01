@@ -16,28 +16,28 @@
                 </tr>
                 <tr>
                     <td>Teacher Name</td>
-                    <td>{{ $teacher->teacherName }}</td>
+                    <td>{{ $teacher->Name }}</td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td>{{ $teacher->teacherPhone }}</td>
+                    <td>{{ $teacher->Phone }}</td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td>{{ $teacher->teacherEmail }}</td>
+                    <td>{{ $teacher->Email }}</td>
                 </tr>
                 <tr>
                     <td>Teacher Status</td>
-                    <td>{{ $teacher->teacherStatus }}</td>
+                    <td>{{ $teacher->Status }}</td>
                 </tr>
                 
             </table>
-            <a href="{{ route('admin.class.edit', $teacher->id) }}" class="btn btn-primary btn-block my-2">Edit Class</a>
+            <a href="{{ route('admin.class.edit', $teacher->id) }}" class="btn btn-primary btn-block my-2">Edit Teacher</a>
             
             <form action="{{ route('admin.class.delete', $teacher->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="Delete Class" class="btn btn-danger btn-block">
+                <input type="submit" value="Delete Teacher" class="btn btn-danger btn-block">
             </form>
         </div>
     </div>
