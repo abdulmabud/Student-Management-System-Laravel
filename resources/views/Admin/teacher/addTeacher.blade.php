@@ -13,7 +13,7 @@ td{
     <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
             <h3 class="text text-center text-primary">Add New Teacher</h3>
-            <form action="{{ route('admin.teacher.add') }}" method="POST" class="form-group">
+            <form action="{{ route('admin.teacher.add') }}" method="POST" class="form-group" enctype="multipart/form-data">
                 @csrf
             <table class="table table-borderless">
                 <tr>
@@ -27,6 +27,10 @@ td{
                 <tr>
                     <td>Email</td>
                     <td><input type="email" name="Email" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+                    <td><input type="file" name="photo" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Status</td>

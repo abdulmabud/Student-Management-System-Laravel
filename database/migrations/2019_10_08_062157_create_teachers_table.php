@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('Name', 100);
             $table->string('Phone', 100);
             $table->string('Email', 100);
+            $table->string('photo', 100);
             $table->string('Status', 50);
             $table->timestamps();
         });

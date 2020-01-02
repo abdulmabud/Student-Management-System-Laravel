@@ -13,9 +13,13 @@ td{
     <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
             <h3 class="text text-center text-primary">Update Teacher</h3>
-            <form action="{{ route('admin.teacher.update', $teacher->id) }}" method="POST" class="form-group">
+            <form action="{{ route('admin.teacher.update', $teacher->id) }}" method="POST" class="form-group" enctype="multipart/form-data">
                 @csrf
+              
             <table class="table table-borderless">
+                <div>
+                    <img src="{{ asset('upload/teachers/'.$teacher->photo) }}" alt="No Image">
+                </div>
                 <tr>
                     <td>Teacher Name</td>
                     <td><input type="text" name="Name" class="form-control" value="{{ $teacher->Name }}"></td>
@@ -27,6 +31,10 @@ td{
                 <tr>
                     <td>Teacher Email</td>
                     <td><input type="email" name="Email" class="form-control" value="{{ $teacher->Email }}"></td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+                    <td><input type="file" name="photo" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Status</td>

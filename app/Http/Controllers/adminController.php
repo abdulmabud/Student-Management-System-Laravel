@@ -275,11 +275,20 @@ class adminController extends Controller
             'Status' => 'required'
         ]);
 
+        if($request->hasFile('photo')){
+            $image = $request->file('photo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $path = public_path('/upload/teachers');
+            $image->move($path, $name);
+
+        }
+
         $teacherObj = new Teacher();
 
         $teacherObj->Name = $request->Name;
         $teacherObj->Phone = $request->Phone;
         $teacherObj->Email = $request->Email;
+        $teacherObj->photo = $name;
         $teacherObj->Status = $request->Status;
 
         $teacherObj->save();
@@ -307,8 +316,17 @@ class adminController extends Controller
             'Status' => 'required'
         ]);
 
+
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        if($request->hasFile('photo')){
+            $image = $request->file('photo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $path = public_path('/upload/teachers');
+            $image->move($path, $name);
+
         }
 
         $teacherObj = Teacher::find($id);
@@ -316,6 +334,7 @@ class adminController extends Controller
         $teacherObj->Name = $request->Name;
         $teacherObj->Phone = $request->Phone;
         $teacherObj->Email = $request->Email;
+        $teacherObj->photo = $name;
         $teacherObj->Status = $request->Status;
         $teacherObj->save();
 

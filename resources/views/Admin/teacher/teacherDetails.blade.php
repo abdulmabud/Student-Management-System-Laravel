@@ -27,6 +27,9 @@
                     <td>{{ $teacher->Email }}</td>
                 </tr>
                 <tr>
+                    <img src="{{ asset('upload/teachers/'.$teacher->photo) }}" alt="No Image" width="100%">
+                </tr>
+                <tr>
                     <td>Teacher Status</td>
                     <td>{{ $teacher->Status }}</td>
                 </tr>
