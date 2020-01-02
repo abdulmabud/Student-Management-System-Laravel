@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Teacher;
 
 class frontEndController extends Controller
 {
     public function index(){
-        return view('frontEnd.home');
+        $data['teachers'] = Teacher::all()->take(4);
+        return view('frontEnd.home', $data);
     }
 
     // public function notice(){
