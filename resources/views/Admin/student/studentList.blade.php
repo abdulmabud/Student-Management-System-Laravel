@@ -39,7 +39,7 @@ th,td{
                         <td>{{ $student->Phone }}</td>
                         <td>{{ $student->Class }}</td>
                         <td>
-                            <a href="#" class="btn btn-success">View Details</a>
+                            <a href="{{ route('admin.student.details', $student->id) }}" class="btn btn-success">View Details</a>
                         </td>
                
                     </tr>

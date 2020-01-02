@@ -30,8 +30,8 @@ td{
                     <td>Status</td>
                     <td>
                         <select name="classStatus" id="" class="form-control">
-                            <option value="Published">Published</option>
-                            <option value="Unpublished">Unpublished</option>
+                            <option value="Publish">Publish</option>
+                            <option value="Unpublish">Unpublish</option>
                         </select>
                     </td>
                 </tr>

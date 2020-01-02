@@ -56,6 +56,10 @@ Route::delete('/library/delete/{id}', 'adminController@libraryDelete')->name('ad
 Route::get('/student', 'adminController@students')->name('admin.students');
 Route::get('/student/add', 'adminController@studentAdd')->name('admin.student.add');
 Route::post('/student/add', 'adminController@studentAdded')->name('admin.student.add');
+Route::get('/student/details/{id}', 'adminController@studentDetails')->name('admin.student.details');
+Route::get('/student/edit/{id}', 'adminController@studentEdit')->name('admin.student.edit');
+Route::post('/student/update/{id}', 'adminController@studentUpdate')->name('admin.student.update');
+Route::delete('/studentr/delete/{id}', 'adminController@studentDelete')->name('admin.student.delete');
 
 
 // adminController for teacher 

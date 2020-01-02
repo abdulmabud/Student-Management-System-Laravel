@@ -199,6 +199,62 @@ class adminController extends Controller
         return redirect()->route('admin.students')->with('success', 'Student Information Save Successfully');
     }
 
+    public function studentDetails($id){
+        // $studentObj = Student::find($id);
+        $data = [];
+        $data['student'] = Student::where('id', $id)->first();
+
+       return view('admin.student.studentDetails', $data);
+    }
+
+    public function studentEdit($id){
+        $data['student'] = Student::where('id', $id)->first();
+        $data['classes'] = Classlist::where('classStatus', 'Publish')->get();
+
+        return view('admin.student.editStudent', $data);
+    }
+
+    public function studentUpdate(Request $request, $id){
+        $studentObj = Student::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'Name' => 'required',
+            'Phone' => 'required',
+            'Birth' => 'required',
+            'Gender' => 'required',
+            'Class' => 'required',
+            'Address' => 'required',
+            'FatherName' => 'required',
+            'FatherPhone' => 'required',
+            'Status' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $studentObj->Name = $request->Name;
+        $studentObj->Phone = $request->Phone;
+        $studentObj->Birth = $request->Birth;
+        $studentObj->Gender = $request->Gender;
+        $studentObj->Class = $request->Class;
+        $studentObj->Address = $request->Address;
+        $studentObj->fatherName = $request->FatherName;
+        $studentObj->fatherPhone = $request->FatherPhone;
+        $studentObj->Status = $request->Status;
+        
+        $studentObj->save();
+        return redirect()->route('admin.students')->with('success', 'Student Information Updated Successfully');
+
+    }
+
+    public function studentDelete($id){
+        $studentObj = Student::find($id);
+        $studentObj->delete();
+
+        return redirect()->route('admin.students')->with('success', 'Student Delete Successfully');
+    }
+
 
     // teacher area 
 
