@@ -25,7 +25,7 @@
   <!-- Custom styles for this template -->
   <link href="{{ asset('custom/css/freelancer.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('custom/css/custom.css') }}">
-
+  @yield('singlePageStyle')
 </head>
 
 <body id="page-top">

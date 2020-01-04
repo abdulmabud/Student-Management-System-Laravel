@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('customAdmin/css/sb-admin.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('customAdmin/css/custom.css') }}">
+    @yield('singlePageStyle')
 
 </head>
 

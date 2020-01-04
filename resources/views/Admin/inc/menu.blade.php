@@ -12,7 +12,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="pagesDropdown">
         <h6 class="dropdown-header">Login Screens:</h6>
-        <a class="dropdown-item" href="login.html">Login</a>
+        <a class="dropdown-item" href="{{ route('admin.login') }}">Login</a>
         <a class="dropdown-item" href="register.html">Register</a>
         <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
         <div class="dropdown-divider"></div>
