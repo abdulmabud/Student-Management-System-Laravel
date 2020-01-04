@@ -48,7 +48,7 @@
             <img class="card-img-top" src="{{ asset('upload/teachers/'.$teacher->photo) }}" alt="No Image" height="250px">
             <div class="card-body">
               <h4 class="card-title">{{ $teacher->Name }}</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet.</p>
+              <p class="card-text">{{ $teacher->Email }}</p>
               <a href="" class="btn btn-primary">See Profile</a>
             </div>
           </div>

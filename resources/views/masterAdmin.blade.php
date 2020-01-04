@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('customAdmin/css/sb-admin.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('customAdmin/css/custom.css') }}">
 
 </head>
 
@@ -90,8 +91,8 @@
     </nav>
 
 
-    <div class="row">
-        <div class="col-2">
+    <div class="row mr-0">
+        <div class="col-2 leftMenu">
             @include('admin.inc.menu')
         </div>
         <div class="col-10">
