@@ -54,13 +54,14 @@ class CourseController extends Controller
             $path = public_path('upload/courses');
             $photo->move($path, $name);
             $photo = $name;
-            $courseObj->photo = $photo;
+        }else{
+            $photo = 'NoImage.JPG';
         }
 
         $courseObj =  new Course;
         $courseObj->title = $request->title;
         $courseObj->description = $request->description;
-       
+        $courseObj->photo = $photo;
         $courseObj->status = $request->status;
         $courseObj->save();
         
@@ -112,20 +113,20 @@ class CourseController extends Controller
            return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $courseObj =  Course::find($id);
+        
         if($request->hasFile('photo')){
             $photo = $request->file('photo');
             $name = time().'.'.$photo->getClientOriginalExtension();
             $path = public_path('upload/courses');
             $photo->move($path, $name);
             $photo = $name;
-        }else{
-            $photo = 'NoImage.JPG';
+            $courseObj->photo = $photo;
         }
 
-        $courseObj =  Course::find($id);
+      
         $courseObj->title = $request->title;
         $courseObj->description = $request->description;
-        $courseObj->photo = $photo;
         $courseObj->status = $request->status;
         $courseObj->save();
         

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Teacher;
+use App\Course;
 
 class frontEndController extends Controller
 {
     public function index(){
         $data['teachers'] = Teacher::all()->take(4);
+        $data['coures'] = Course::all()->take(4);
         return view('frontEnd.home', $data);
     }
 

@@ -49,7 +49,25 @@
             <div class="card-body">
               <h4 class="card-title">{{ $teacher->Name }}</h4>
               <p class="card-text">{{ $teacher->Email }}</p>
-              <a href="" class="btn btn-primary">See Profile</a>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
+
+    <div class="courses my-5">
+      <h3 class="text-center text-primary">List of our Course</h3>
+      <div class="row">
+        @foreach ($coures as $course)
+            
+        <div class="col-3">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('upload/courses/'.$course->photo) }}" alt="No Image" height="250px">
+            <div class="card-body">
+              <h4 class="card-title">{{ $course->title }}</h4>
+              <a href="#" class="btn btn-primary">Course Detials</a>
             </div>
           </div>
         </div>
