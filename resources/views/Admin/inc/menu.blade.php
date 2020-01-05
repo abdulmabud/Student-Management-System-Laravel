@@ -52,9 +52,9 @@
         <span>Students</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('admin.parents') }}">
+      <a class="nav-link" href="{{ route('course.index') }}">
         <i class="fas fa-fw fa-chart-area"></i>
-        <span>Parents</span></a>
+        <span>Course</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.assignment') }}">

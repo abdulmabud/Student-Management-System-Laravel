@@ -23,11 +23,6 @@ class adminController extends Controller
         return view('admin.classSchedule');
     }
 
-    
-   
-    public function parents(){
-        return view('admin.parents');
-    }
 
     public function assignment(){
         return view('admin.assignment');

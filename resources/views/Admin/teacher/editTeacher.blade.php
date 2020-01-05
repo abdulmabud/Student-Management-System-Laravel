@@ -47,7 +47,7 @@ td{
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Update Class" name="updateClass" class="btn btn-primary btn-block mt-2"></td>
+                    <td><input type="submit" value="Update Teacher" name="updateTeacher" class="btn btn-primary btn-block mt-2"></td>
                 </tr>
             </table>
         </form>

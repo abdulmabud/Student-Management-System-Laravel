@@ -34,7 +34,6 @@ Route::post('/login', 'adminAuthController@login')->name('admin.login');
 
 
 
-Route::get('/parents', 'adminController@parents')->name('admin.parents');
 Route::get('/assignment', 'adminController@assignment')->name('admin.assignment');
 Route::get('/examlist', 'adminController@examlist')->name('admin.examList');
 Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoard');
@@ -83,3 +82,7 @@ Route::post('/class/add', 'adminController@classAdded')->name('admin.class.add')
 Route::get('/class/edit/{id}', 'adminController@classEdit')->name('admin.class.edit');
 Route::post('/class/update/{id}', 'adminController@classUpdate')->name('admin.class.update');
 Route::delete('/class/delete/{id}','adminController@classDelete')->name('admin.class.delete');
+
+// Resource Controller 
+
+Route::resource('course', 'CourseController');
