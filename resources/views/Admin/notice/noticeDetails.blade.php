@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>Department</td>
-                    <td>{{ $notice->description }}</td>
+                    <td>{{ $notice->dept }}</td>
                 </tr>
                 <tr>
                     <td>Status</td>

@@ -5,13 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Teacher;
 use App\Course;
+use App\Noticeboard;
 
 class frontEndController extends Controller
 {
     public function index(){
         $data['teachers'] = Teacher::all()->take(4);
         $data['coures'] = Course::all()->take(4);
+        $data['notices'] = Noticeboard::all()->take(4);
         return view('frontEnd.home', $data);
+    }
+
+    public function viewnotice($id){
+
+        $data = [];
+        $data['notice'] = Noticeboard::find($id);
+        
+        return view('frontEnd.noticeboard', $data);
     }
 
     // public function notice(){

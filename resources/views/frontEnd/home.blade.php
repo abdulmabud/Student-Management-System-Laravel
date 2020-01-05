@@ -57,6 +57,28 @@
       </div>
     </div>
 
+    <div class="noticeboard">
+      <div class="text-center">
+        <h3 class="text-primary">Noticeboard</h3>
+      </div>
+      <div>
+        <table class="table table-bordered">
+          <tr>
+            <th>Date</th>
+            <th>Notice</th>
+            <th>Dept</th>
+          </tr>
+          @foreach ($notices as $notice)
+          <tr>
+            <td>{{ \Carbon\Carbon::parse($notice->created_at)->format('d-M-y') }}</td>
+            <td><a href="{{ route('view.notice', $notice->id) }}">{{ $notice->subject }}</a></td>
+            <td>{{ $notice->dept }}</td>
+          </tr>
+          @endforeach
+        </table>
+      </div>
+    </div>
+
     <div class="courses my-5">
       <h3 class="text-center text-primary">List of our Course</h3>
       <div class="row">
