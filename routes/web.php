@@ -36,7 +36,7 @@ Route::post('/login', 'adminAuthController@login')->name('admin.login');
 
 Route::get('/assignment', 'adminController@assignment')->name('admin.assignment');
 Route::get('/examlist', 'adminController@examlist')->name('admin.examList');
-Route::get('/noticeboard', 'adminController@noticeboard')->name('admin.noticeBoard');
+
 
 // Student Attendance system
 
@@ -85,4 +85,8 @@ Route::delete('/class/delete/{id}','adminController@classDelete')->name('admin.c
 
 // Resource Controller 
 
-Route::resource('course', 'CourseController');
+// Route::resource('course', 'CourseController');
+Route::resources([
+    'course' => 'CourseController',
+    'notice' => 'NoticeController'
+]);

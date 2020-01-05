@@ -67,7 +67,7 @@
           <span>Exam List</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.noticeBoard') }}">
+        <a class="nav-link" href="{{ route('notice.index') }}">
             <i class="fas fa-flag-checkered"></i>
           <span>Notice Board</span></a>
       </li>
