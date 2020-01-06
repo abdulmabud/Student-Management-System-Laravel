@@ -11,7 +11,7 @@
         <div class="col-md-6 offset-md-3">
             <table class="table table-bordered">
                 <tr>
-                    <td>Student Id</td>
+                    <td class="w-25">Student Id</td>
                     <td>{{ $student->id }}</td>
                 </tr>
                 <tr>
@@ -45,6 +45,14 @@
                 <tr>
                     <td>Father Phone</td>
                     <td>{{ $student->fatherPhone }}</td>
+                </tr>
+                <tr>
+                    <td>Attend Days</td>
+                    <td>{{ $totalAttend }} out of {{ $totalDays }} Days ({{ ($totalAttend/$totalDays)*100 }}%)</td>
+                </tr>
+                <tr>
+                    <td>Absend Days</td>
+                    <td>{{ $totalAbsend }} out of {{ $totalDays }} Days ({{ ($totalAbsend/$totalDays)*100 }}%)</td>
                 </tr>
                 <tr>
                     <td>Student Status</td>

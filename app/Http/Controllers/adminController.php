@@ -200,7 +200,10 @@ class adminController extends Controller
     public function studentDetails($id){
         // $studentObj = Student::find($id);
         $data = [];
-        $data['student'] = Student::where('id', $id)->first();
+        $data['student'] = Student::find($id);
+        $data['totalAttend'] = Attendance::where(['attendance' => 'attend', 'student_id' => $id] )->get()->count();
+        $data['totalAbsend'] = Attendance::where(['attendance' => 'absend', 'student_id' => $id])->get()->count();
+        $data['totalDays'] = Attendance::where(['student_id' => $id])->get()->count();
 
        return view('admin.student.studentDetails', $data);
     }
