@@ -64,6 +64,7 @@ Route::get('/student/edit/{id}', 'adminController@studentEdit')->name('admin.stu
 Route::post('/student/update/{id}', 'adminController@studentUpdate')->name('admin.student.update');
 Route::delete('/studentr/delete/{id}', 'adminController@studentDelete')->name('admin.student.delete');
 
+Route::get('/student/cal', 'adminController@studentCal')->name('admin.student.cal');
 
 // adminController for teacher 
 Route::get('/teacher', 'adminController@teachers')->name('admin.teachers');

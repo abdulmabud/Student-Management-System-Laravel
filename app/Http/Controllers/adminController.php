@@ -256,6 +256,13 @@ class adminController extends Controller
         return redirect()->route('admin.students')->with('success', 'Student Delete Successfully');
     }
 
+    public function studentCal(){
+        $data = [];
+        $data['classes'] = Classlist::all();
+        $data['totalStudent'] = Student::all()->count();
+        return view('admin.student.calStudent', $data);
+    }
+
 
     // teacher area 
 

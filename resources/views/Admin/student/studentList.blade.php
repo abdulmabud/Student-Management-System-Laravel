@@ -10,10 +10,17 @@ th,td{
 }
 </style>
     <div class="mt-5 text-center">
-        <p><a href="" class="btn btn-primary mr-5">Student Statistics</a>
+        <p><button class="btn btn-primary mr-5" id="studentCalBtn">Student Statistics</button>
             <a href="{{ route('admin.student.add') }}" class="btn btn-primary ml-5">Add New Student</a>
         </p>
         
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div id="result">
+                
+            </div>
+        </div>
     </div>
     
     <h3 class="text text-primary text-center mt-5">List of Book</h3>
@@ -48,4 +55,19 @@ th,td{
             </table>
         </div>
     </div>
+@endsection
+
+@section('singlePageScript')
+    <script>
+        $('#studentCalBtn').click(function(){
+            $.ajax({
+                url: '{{ route('admin.student.cal') }}',
+                method: 'GET',
+                cache: false,
+                success: function(data){
+                    $('#result').html(data);
+                }
+            });
+        });
+    </script>
 @endsection
