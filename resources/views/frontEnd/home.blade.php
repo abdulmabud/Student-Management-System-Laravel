@@ -45,7 +45,7 @@
             
         <div class="col-3">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('upload/teachers/'.$teacher->photo) }}" alt="No Image" height="250px">
+            <img class="card-img-top" src="{{$teacher->photo}}" alt="No Image" height="250px">
             <div class="card-body">
               <h4 class="card-title">{{ $teacher->Name }}</h4>
               <p class="card-text">{{ $teacher->Email }}</p>

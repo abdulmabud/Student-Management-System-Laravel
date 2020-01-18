@@ -21,5 +21,5 @@
         <td>{{ $totalStudent }}</td>
     </tr>
 </table>
-<span class="float-right text-primary">Last Update: {{ Carbon\Carbon::now() }}</span>
+<span class="float-right text-primary">Last Update: {{ Carbon\Carbon::now() }}</span> <br>
 <span class="float-right text-warning">*Info update from database using ajax</span>
