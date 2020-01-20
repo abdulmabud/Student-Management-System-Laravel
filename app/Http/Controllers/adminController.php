@@ -17,7 +17,13 @@ class adminController extends Controller
         return $this->middleware('auth');
     }
     public function index(){
-        return view('admin.dashboard');
+        $data = [];
+        $data['totalStudent'] = Student::all()->count();
+        $data['totalTeacher'] = Teacher::all()->count();
+        $data['totalClass'] = Classlist::all()->count();
+        $data['totalBook'] = Library::all()->count();
+
+        return view('admin.dashboard', $data);
     }
     public function classSchedule(){
         return view('admin.classSchedule');
