@@ -39,13 +39,13 @@
 
    <div class="container">
     <div class="tearcher my-5">
-      <h3 class="text-center text-primary">List of our Tearcher</h3>
+      <h3 class="text-center text-primary mb-3">List of our Tearcher</h3>
       <div class="row">
         @foreach ($teachers as $teacher)
             
         <div class="col-3">
           <div class="card">
-            <img class="card-img-top" src="{{$teacher->photo}}" alt="No Image" height="250px">
+            <img class="card-img-top" src="{{asset('upload/teachers/'.$teacher->photo)}}" alt="No Image" height="250px">
             <div class="card-body">
               <h4 class="card-title">{{ $teacher->Name }}</h4>
               <p class="card-text">{{ $teacher->Email }}</p>
