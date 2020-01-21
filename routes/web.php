@@ -86,6 +86,10 @@ Route::get('/class/edit/{id}', 'adminController@classEdit')->name('admin.class.e
 Route::post('/class/update/{id}', 'adminController@classUpdate')->name('admin.class.update');
 Route::delete('/class/delete/{id}','adminController@classDelete')->name('admin.class.delete');
 
+
+Route::get('/notice/cal', 'NoticeController@calNotice')->name('notice.cal');
+
+
 // Resource Controller 
 
 // Route::resource('course', 'CourseController');
@@ -93,3 +97,4 @@ Route::resources([
     'course' => 'CourseController',
     'notice' => 'NoticeController'
 ]);
+

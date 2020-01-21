@@ -10,12 +10,18 @@ th,td{
 }
 </style>
     <div class="mt-5 text-center">
-        <p><a href="" class="btn btn-primary mr-5">Notice Statistics</a>
+    <p><span class="btn btn-primary mr-5" id="noticeCalBtn">Notice Statistics</span>
             <a href="{{ route('notice.create') }}" class="btn btn-primary ml-5">Add New Notice</a>
         </p>
         
     </div>
-    
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div id="result">
+                
+            </div>
+        </div>
+    </div>
     <h3 class="text text-primary text-center mt-5">List of Notice</h3>
     <div class="row">
         <div class="col-12">
@@ -46,4 +52,19 @@ th,td{
             </table>
         </div>
     </div>
+@endsection
+
+@section('singlePageScript')
+    <script>
+        $('#noticeCalBtn').click(function(){
+            $.ajax({
+                url: '{{ route('notice.cal') }}',
+                method: 'GET',
+                cache: false,
+                success: function(data){
+                    $('#result').html(data);
+                }
+            });
+        });
+    </script>
 @endsection

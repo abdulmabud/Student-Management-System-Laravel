@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Noticeboard;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class NoticeController extends Controller
 {
@@ -132,5 +133,22 @@ class NoticeController extends Controller
         $noticeObj = Noticeboard::find($id);
         $noticeObj->delete();
         return redirect()->route('notice.index')->with('success', 'Notice Deleted Successfully');
+    }
+
+    public function calNotice(){
+    
+        $data = [];
+        $allDept = Noticeboard::select('dept')->distinct('dept')->get();
+  
+        foreach($allDept as $dept){
+            $dept = $dept->dept;
+            $d = Noticeboard::where('dept', $dept)->count('dept');
+            $depts[$dept] = $d;
+        }
+        
+        $data['depts'] = $depts;
+        $data['totalNotice'] = Noticeboard::all()->count();
+    
+        return view('admin.notice.calNotice', $data);
     }
 }
