@@ -9,7 +9,12 @@ use Validator;
 class adminAuthController extends Controller
 {
     public function showLogin(){
-        return view('admin.auth.login');
+        if(Auth::check()){
+            return redirect()->route('admin.dashboard');
+        }else{
+            return view('admin.auth.login');
+        }
+        
     }
 
     public function login(Request $request){
@@ -27,7 +32,8 @@ class adminAuthController extends Controller
         // var_dump($credentails);
 
         if(Auth::attempt($credentails)){
-           return view('admin.dashboard');
+        //    return view('admin.dashboard');
+           return redirect()->route('admin.dashboard');
         }else{
             return redirect()->route('admin.login');
         }
