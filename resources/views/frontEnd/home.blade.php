@@ -14,13 +14,13 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
-        <img src="{{ asset('custom/img/imgSlider/post-336856-0-18918000-1459704022.jpg') }}" class="imgSlider" alt="First slide">
+        <img src="{{ asset('custom/img/imgSlider/slider-01.jpg') }}" class="imgSlider" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('custom/img/imgSlider/image1.jpg') }}" class="imgSlider" alt="Second slide">
+        <img src="{{ asset('custom/img/imgSlider/slider-02.jpg') }}" class="imgSlider" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('custom/img/imgSlider/sur.jpg') }}" class="imgSlider" alt="Third slide">
+        <img src="{{ asset('custom/img/imgSlider/slider-03.jpg') }}" class="imgSlider" alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
