@@ -71,7 +71,7 @@
           @foreach ($notices as $notice)
           <tr>
             <td>{{ \Carbon\Carbon::parse($notice->created_at)->format('d-M-y') }}</td>
-            <td><a href="{{ route('view.notice', $notice->id) }}">{{ $notice->subject }}</a></td>
+            <td><a href="{{ route('view.notice', $notice->id) }}" class="noticeTitle">{{ $notice->subject }}</a></td>
             <td>{{ $notice->dept }}</td>
           </tr>
           @endforeach

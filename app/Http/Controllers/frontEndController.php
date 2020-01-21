@@ -12,7 +12,7 @@ class frontEndController extends Controller
     public function index(){
         $data['teachers'] = Teacher::all()->take(4);
         $data['coures'] = Course::all()->take(4);
-        $data['notices'] = Noticeboard::all()->take(4);
+        $data['notices'] = Noticeboard::all()->take(10);
         return view('frontEnd.home', $data);
     }
 

@@ -14,3 +14,10 @@ h2{
         height: 450px;
     }
 }
+
+.noticeTitle{
+    color: black;
+}
+.noticeTitle:hover{
+    text-decoration: none;
+}
