@@ -31,6 +31,7 @@ Route::get('/dashboard', 'adminController@index')->name('admin.dashboard');
 Route::get('/class-Schedule', 'adminController@classSchedule')->name('admin.classSchedule');
 Route::get('/login', 'adminAuthController@showLogin')->name('admin.login');
 Route::post('/login', 'adminAuthController@login')->name('admin.login');
+Route::get('/logout', 'adminAuthController@logout')->name('admin.logout');
 
 
 

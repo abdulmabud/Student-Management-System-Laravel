@@ -41,4 +41,9 @@ class adminAuthController extends Controller
      
 
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('admin.login');
+    }
 }

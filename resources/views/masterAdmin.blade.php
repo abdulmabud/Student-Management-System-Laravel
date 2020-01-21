@@ -89,6 +89,7 @@
             </li>
         </ul>
 
+    <a href="{{ route('admin.logout') }}" class="btn btn-primary">Logout</a>
     </nav>
 
 
