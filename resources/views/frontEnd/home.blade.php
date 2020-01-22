@@ -38,7 +38,7 @@
    {{-- teacher list start --}}
 
    <div class="container">
-    <div class="tearcher my-5">
+    <div class="tearcher my-5" id="teacher">
       <h3 class="text-center text-primary mb-3">List of our Tearcher</h3>
       <div class="row">
         @foreach ($teachers as $teacher)
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="noticeboard">
+    <div class="noticeboard" id="noticeboard">
       <div class="text-center">
         <h3 class="text-primary">Noticeboard</h3>
       </div>
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="courses my-5">
+    <div class="courses my-5" id="course">
       <h3 class="text-center text-primary">List of our Course</h3>
       <div class="row">
         @foreach ($coures as $course)
