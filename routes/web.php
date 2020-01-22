@@ -54,6 +54,7 @@ Route::post('/library/added', 'adminController@libraryAdded')->name('admin.libra
 Route::get('/library/edit/{id}', 'adminController@libraryEdit')->name('admin.library.edit');
 Route::post('/library/update/{id}', 'adminController@libraryUpdate')->name('admin.library.update');
 Route::delete('/library/delete/{id}', 'adminController@libraryDelete')->name('admin.library.delete');
+Route::get('/library/cal', 'adminController@calLibrary')->name('admin.library.cal');
 
 
 // adminController for student 

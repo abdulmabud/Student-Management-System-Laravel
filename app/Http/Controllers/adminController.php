@@ -159,6 +159,22 @@ class adminController extends Controller
         return redirect()->route('admin.library')->with('success', 'Book Deleted Successfully');
     }
 
+    public function calLibrary(){
+        $data = [];
+
+        $allCategory = Library::select('bookCategory')->distinct('bookCategory')->get();
+        foreach($allCategory as $category){
+            $category = $category->bookCategory;
+            // echo $category;
+        
+            $count = Library::where('bookCategory', $category)->count('bookCategory');
+            $categories[$category] = $count;
+        }
+        $data['categories'] = $categories;
+        $data['totalBook'] = Library::all()->count();
+        return view('admin.library.calLibrary', $data);
+    }
+
     // student area 
     public function students(){
         $data['students'] = Student::get(['id', 'Name', 'Phone', 'Class']);
