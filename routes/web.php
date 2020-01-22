@@ -76,6 +76,7 @@ Route::get('/teacher/details/{id}', 'adminController@teacherDetails')->name('adm
 Route::get('/teacher/edit/{id}', 'adminController@teacherEdit')->name('admin.teacher.edit');
 Route::post('/teacher/update/{id}', 'adminController@teacherUpdate')->name('admin.teacher.update');
 Route::delete('/teacher/delete/{id}', 'adminController@teacherDelete')->name('admin.teacher.delete');
+Route::get('/teacher/cal', 'adminController@calTeacher')->name('admin.tecacher.cal');
 
 
 // adminController for class 

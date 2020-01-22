@@ -350,21 +350,21 @@ class adminController extends Controller
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        $teacherObj = Teacher::find($id);
         if($request->hasFile('photo')){
             $image = $request->file('photo');
             $name = time().'.'.$image->getClientOriginalExtension();
             $path = public_path('/upload/teachers');
             $image->move($path, $name);
-
+            $teacherObj->photo = $name;
         }
 
-        $teacherObj = Teacher::find($id);
+        
 
         $teacherObj->Name = $request->Name;
         $teacherObj->Phone = $request->Phone;
         $teacherObj->Email = $request->Email;
-        $teacherObj->photo = $name;
+        
         $teacherObj->Status = $request->Status;
         $teacherObj->save();
 
@@ -377,6 +377,15 @@ class adminController extends Controller
         $teacherObj->delete();
 
         return redirect()->route('admin.teachers')->with('success', 'Teacher Delete Successfully');
+    }
+
+    public function calTeacher(){
+        $data = [];
+        $data['pubTeacher'] = Teacher::where('status', 'Publish')->count();
+        $data['unpubTeacher'] = Teacher::where('status', 'Unpublish')->count();
+        $data['totalTeacher'] = Teacher::all()->count();
+
+        return view('admin.teacher.calTeacher', $data);
     }
 
     // classlist area 
