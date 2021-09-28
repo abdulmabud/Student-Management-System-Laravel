@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Course;
-use Validator;
+use App\Models\Course;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {

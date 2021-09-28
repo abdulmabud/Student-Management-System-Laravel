@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Teacher;
-use App\Course;
-use App\Noticeboard;
+use App\Models\Teacher;
+use App\Models\Course;
+use App\Models\Noticeboard;
 
 class frontEndController extends Controller
 {

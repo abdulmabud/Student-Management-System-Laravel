@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Library;
-use App\Student;
-use App\Teacher;
-use App\Classlist;
-use App\Attendance;
-use Validator;
+use App\Models\Library;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\Classlist;
+use App\Models\Attendance;
+use Illuminate\Support\Facades\Validator;
 
 class adminController extends Controller
 {
