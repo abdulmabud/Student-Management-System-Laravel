@@ -35,7 +35,7 @@ Route::get('/noticeboard/{id}', [frontEndController::class, 'viewnotice'])->name
 // adminController for admin panel
 
 Route::get('/dashboard', [adminController::class, 'index'])->name('admin.dashboard');
-Route::get('/class-Schedule', [adminController::class, 'classSchedule'])->name('admin.classSchedule');
+Route::get('/class-schedule', [adminController::class, 'classSchedule'])->name('admin.classSchedule');
 Route::get('/login', [adminAuthController::class, 'showLogin'])->name('admin.login');
 Route::post('/login', [adminAuthController::class, 'login'])->name('admin.login');
 Route::get('/logout', [adminAuthController::class, 'logout'])->name('admin.logout');
@@ -71,7 +71,7 @@ Route::post('/student/add', [adminController::class, 'studentAdded'])->name('adm
 Route::get('/student/details/{id}', [adminController::class, 'studentDetails'])->name('admin.student.details');
 Route::get('/student/edit/{id}', [adminController::class, 'studentEdit'])->name('admin.student.edit');
 Route::post('/student/update/{id}', [adminController::class, 'studentUpdate'])->name('admin.student.update');
-Route::delete('/studentr/delete/{id}', [adminController::class, 'studentDelete'])->name('admin.student.delete');
+Route::delete('/student/delete/{id}', [adminController::class, 'studentDelete'])->name('admin.student.delete');
 
 Route::get('/student/cal', [adminController::class, 'studentCal'])->name('admin.student.cal');
 

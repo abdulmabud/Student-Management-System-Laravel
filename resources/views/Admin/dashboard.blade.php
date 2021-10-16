@@ -1,4 +1,4 @@
-@extends('masterAdmin')
+@extends('masteradmin')
 
 @section('title')
 Dashboard- Admin Panel
