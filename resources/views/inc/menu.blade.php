@@ -1,4 +1,4 @@
-<!-- Navigation -->
+  <!-- Navigation -->
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="{{ route('frontEnd.home') }}">Student</a>
